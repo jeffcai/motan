@@ -13,18 +13,13 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
+package com.weibo.api.motan.filter.opentracing;
 
-package com.weibo.motan.demo.server;
+public class HelloServiceImpl implements HelloService {
 
-import com.weibo.api.motan.config.springsupport.annotation.MotanService;
-import com.weibo.motan.demo.service.MotanDemoService;
-
-@MotanService(export = "demoMotan:8002")
-public class MotanDemoServiceImpl implements MotanDemoService {
-
-    public String hello(String name) {
-        System.out.println(name);
-        return "Hello " + name + "!";
+    @Override
+    public String sayHello(String name) {
+        return "hello," + name;
     }
 
 }

@@ -13,18 +13,17 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
+package com.weibo.api.motan.filter.opentracing.zipkin.demo;
 
-package com.weibo.motan.demo.server;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.weibo.api.motan.config.springsupport.annotation.MotanService;
-import com.weibo.motan.demo.service.MotanDemoService;
-
-@MotanService(export = "demoMotan:8002")
-public class MotanDemoServiceImpl implements MotanDemoService {
-
-    public String hello(String name) {
-        System.out.println(name);
-        return "Hello " + name + "!";
+public class HelloServer {
+    public static void main(String[] args) {
+        //set tracer implementation by spring config. see motan_server.xml
+        
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:motan_server.xml");
+        System.out.println("server start...");
     }
 
 }
